@@ -1,5 +1,5 @@
 import unittest
-import explore_slice.slice_sandbox as ss
+import slice.slice_sandbox as ss
 
 class TestSlice(unittest.TestCase):
 
