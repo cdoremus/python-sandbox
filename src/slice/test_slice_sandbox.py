@@ -1,5 +1,4 @@
 import unittest
-import slice.slice_sandbox as ss
 
 class TestSlice(unittest.TestCase):
 
@@ -8,14 +7,14 @@ class TestSlice(unittest.TestCase):
     start = 2
     end = 4
     exp = [3,4]
-    ans = ss.sliceList(arr, start, end)
+    ans = arr[start:end]
     self.assertEqual(exp, ans)
 
   def test_slice_no_end(self):
     arr = [1,2,3,4,5,6]
     start = 2
     exp = [3,4,5,6]
-    ans = ss.sliceList(arr, start)
+    ans = arr[start:]
     self.assertEqual(exp, ans)
 
 
@@ -23,20 +22,21 @@ class TestSlice(unittest.TestCase):
     arr = [1,2,3,4,5,6]
     start = 12
     exp = []
-    ans = ss.sliceList(arr, start)
+    ans = arr[start:]
     self.assertEqual(exp, ans)
 
-  def test_slice_empty_list_with_start_past_end(self):
+  def test_slice_empty_list(self):
     arr = []
     start = 0
     exp = []
-    ans = ss.sliceList(arr, start)
+    ans = arr[0:]
     self.assertEqual(exp, ans)
 
-  def test_slice_with_no_start_or_end(self):
+
+  def test_slice_to_copy(self):
     arr = [1,2,3,4,5,6]
     exp = arr
-    ans = ss.sliceList(arr)
+    ans = arr[:]
     self.assertEqual(exp, ans)
 
 if __name__ == '__main__':
